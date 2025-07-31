@@ -29,52 +29,11 @@ Una herramienta profesional de auditoría de segmentación de red desarrollada e
 - macOS 10.14+
 
 ## 📦 Instalación
-
-### Instalación Automática (Recomendada)
-```bash
-# Clonar repositorio
-git clone https://github.com/your-repo/segmentador.git
-cd segmentador
-
-# Ejecutar instalador automático
-chmod +x install.sh
-./install.sh
-```
-
-### Instalación Manual
-
 #### 1. Clonar el Repositorio
 ```bash
 git clone https://github.com/your-repo/segmentador.git
 cd segmentador
 ```
-
-#### 2. Verificar Python
-```bash
-python3 --version
-# Debe ser Python 3.6 o superior
-```
-
-#### 3. Instalar Nmap
-```bash
-# Ubuntu/Debian
-sudo apt update && sudo apt install nmap
-
-# CentOS/RHEL
-sudo yum install nmap
-
-# Fedora
-sudo dnf install nmap
-
-# macOS
-brew install nmap
-```
-
-#### 4. Instalar Dependencias Python
-```bash
-pip3 install -r requirements.txt
-```
-
 #### 5. Hacer Ejecutable
 ```bash
 chmod +x segmentador.py
