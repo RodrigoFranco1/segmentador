@@ -225,28 +225,6 @@ resumen_auditoria_20250131_143022.txt # Resumen técnico
 
 > **🚨 IMPORTANTE**: Esta herramienta debe usarse únicamente en redes donde tengas autorización explícita para realizar auditorías de seguridad. El uso no autorizado puede violar leyes locales e internacionales.
 
-### 🛡️ **Mejores Prácticas**
-
-```bash
-# 1. Siempre verificar autorización antes de escanear
-echo "¿Tienes autorización para escanear estos rangos? [y/N]"
-read -r authorization
-
-# 2. Documentar el alcance de la auditoría
-# 3. Coordinar con equipos de SOC/SecOps
-# 4. Usar rangos específicos, evitar escaneos amplios
-# 5. Revisar políticas organizacionales
-```
-
-### 🔐 **Detección y Mitigación**
-
-Esta herramienta puede ser detectada por:
-- Sistemas de Detección de Intrusos (IDS)
-- Firewalls con capacidades de deep packet inspection
-- Sistemas de monitoreo de red (SIEM)
-
----
-
 ## 📊 Ejemplo de Output
 
 ### Terminal Output
@@ -313,67 +291,6 @@ export NMAP_TIMEOUT="300"
 4. 📤 Push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. 🔄 Abre un Pull Request
 
-### 💡 Ideas para Contribuir
-
-- 🔌 Plugins para herramientas adicionales
-- 🌐 Integración con APIs de threat intelligence
-- 📊 Nuevas visualizaciones para dashboard
-- 🔧 Optimizaciones de rendimiento
-- 📚 Documentación adicional
-- 🧪 Tests unitarios
-
----
-
-## 📞 Soporte
-
-### 🐛 Reportar Bugs
-Abre un [issue](https://github.com/tu-usuario/segmentador/issues) con:
-- Descripción del problema
-- Steps to reproduce
-- Output de error
-- Información del sistema
-
-### 💬 Discusiones
-Únete a las [Discussions](https://github.com/tu-usuario/segmentador/discussions) para:
-- Preguntas de uso
-- Ideas de mejoras
-- Compartir casos de uso
-- Networking con la comunidad
-
-### 📧 Contacto
-- **Email**: security@tu-dominio.com
-- **Twitter**: [@tu_usuario](https://twitter.com/tu_usuario)
-- **LinkedIn**: [Tu Perfil](https://linkedin.com/in/tu-perfil)
-
----
-
-## 📜 Licencia
-
-```
-MIT License
-
-Copyright (c) 2025 Tu Nombre
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
 
 ## 🙏 Créditos
 
@@ -382,11 +299,6 @@ SOFTWARE.
 - **[Chart.js](https://www.chartjs.org/)** - Visualizaciones interactivas
 - **[Bash](https://www.gnu.org/software/bash/)** - Scripting shell
 
-### Inspiración
-- Metodologías OWASP para testing de seguridad
-- Frameworks de pentesting (PTES, NIST)
-- Comunidad de seguridad ofensiva
-
 ---
 
 <div align="center">
@@ -394,7 +306,5 @@ SOFTWARE.
 **⭐ Si este proyecto te resulta útil, considera darle una estrella ⭐**
 
 **Desarrollado con ❤️ para la comunidad de seguridad**
-
-[⬆ Volver arriba](#-segmentador---herramienta-profesional-de-auditoría-de-segmentación-de-red)
 
 </div>
