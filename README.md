@@ -1,89 +1,64 @@
-# 🛡️ Segmentador - Herramienta Profesional de Auditoría de Segmentación de Red
+# 🛡️ Segmentador v5.0 - Network Segmentation Audit Tool
 
-<div align="center">
+Una herramienta profesional de auditoría de segmentación de red desarrollada en Python para pentesters, auditores de seguridad y administradores de red.
 
-![Version](https://img.shields.io/badge/version-2.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)
-![Bash](https://img.shields.io/badge/bash-4.0%2B-orange.svg)
+## 📋 Características
 
-**Una herramienta avanzada para auditorías de segmentación de red con dashboard interactivo y reportes profesionales**
+- ✅ **Escaneo masivo** de segmentos de red con Nmap
+- ✅ **Paralelización granular** con control de concurrencia
+- ✅ **Múltiples formatos de export** (CSV, JSON, Markdown, HTML)
+- ✅ **Dashboard interactivo** con visualizaciones
+- ✅ **Detección automática** de condiciones de red
+- ✅ **Reintentos inteligentes** con backoff exponencial
+- ✅ **Categorización de servicios** por criticidad
+- ✅ **Validación robusta** de rangos de red
+- ✅ **Logging estructurado** para auditoría
 
-[Características](#-características) • [Instalación](#-instalación) • [Uso](#-uso) • [Ejemplos](#-ejemplos) • [Outputs](#-archivos-generados)
+## 🔧 Requisitos del Sistema
 
-</div>
+### Software Requerido
+- **Python 3.6+** (recomendado Python 3.9+ para mejor compatibilidad)
+- **Nmap 7.0+**
+- **Permisos de root** (recomendado para escaneos SYN)
 
----
+### Sistemas Operativos Soportados
+- Ubuntu 18.04+
+- Debian 9+
+- CentOS 7+
+- Fedora 30+
+- macOS 10.14+
 
-## 📋 Descripción
+## 📦 Instalación
 
-**Segmentador** es una herramienta profesional de auditoría de segmentación de red diseñada para pentesters, auditores de seguridad y administradores de red. Automatiza el descubrimiento de hosts activos en rangos de red especificados y genera reportes detallados con visualizaciones interactivas.
-
-### 🎯 Casos de Uso
-
-- **Auditorías de Seguridad** - Evaluación de superficie de ataque
-- **Pentesting** - Reconocimiento de infraestructura de red  
-- **Compliance** - Verificación de segmentación de red
-- **Administración de Red** - Inventario de dispositivos activos
-- **Arquitectura de Red** - Análisis de distribución de servicios
-
----
-
-## ✨ Características
-
-### 🚀 **Funcionalidades Core**
-- ✅ **Escaneo Masivo** - Soporte para miles de segmentos de red
-- ✅ **Detección Inteligente** - Identificación de 20+ servicios críticos
-- ✅ **Categorización Automática** - Clasificación por criticidad de servicios
-- ✅ **Análisis Temporal** - Métricas de duración y rendimiento
-
-### 📊 **Dashboard Interactivo**
-- ✅ **Visualizaciones Modernas** - Gráficos con Chart.js
-- ✅ **Mapa de Calor** - Distribución visual de actividad
-- ✅ **Tablas Dinámicas** - Datos detallados navegables
-- ✅ **Responsive Design** - Compatible con móviles y desktop
-
-### 📈 **Reportes Profesionales**
-- ✅ **Múltiples Formatos** - CSV, JSON, Markdown, HTML
-- ✅ **Exports Estructurados** - Datos listos para análisis
-- ✅ **Resúmenes Ejecutivos** - Para stakeholders no técnicos
-- ✅ **Documentación Detallada** - Para equipos técnicos
-
-### 🔧 **Características Técnicas**
-- ✅ **Configuración Flexible** - Rangos personalizados y predefinidos
-- ✅ **Validación Robusta** - Verificación de formatos CIDR
-- ✅ **Manejo de Errores** - Recuperación automática de fallos
-- ✅ **Logging Detallado** - Trazabilidad completa del proceso
-
----
-
-## 🔧 Instalación
-
-### Requisitos del Sistema
-
+### Instalación Automática (Recomendada)
 ```bash
-# Sistema Operativo
-Ubuntu 18.04+ / Debian 9+ / CentOS 7+ / Fedora 30+
-
-# Dependencias
-- Bash 4.0+
-- Nmap 7.0+
-- Navegador web moderno (para dashboard)
-```
-
-### Instalación Rápida
-
-```bash
-# 1. Clonar repositorio
-git clone https://github.com/tu-usuario/segmentador.git
+# Clonar repositorio
+git clone https://github.com/your-repo/segmentador.git
 cd segmentador
 
-# 2. Hacer ejecutable
-chmod +x segmentador.sh
+# Ejecutar instalador automático
+chmod +x install.sh
+./install.sh
+```
 
-# 3. Instalar dependencias (si es necesario)
+### Instalación Manual
+
+#### 1. Clonar el Repositorio
+```bash
+git clone https://github.com/your-repo/segmentador.git
+cd segmentador
+```
+
+#### 2. Verificar Python
+```bash
+python3 --version
+# Debe ser Python 3.6 o superior
+```
+
+#### 3. Instalar Nmap
+```bash
 # Ubuntu/Debian
-sudo apt-get update && sudo apt-get install nmap
+sudo apt update && sudo apt install nmap
 
 # CentOS/RHEL
 sudo yum install nmap
@@ -91,220 +66,373 @@ sudo yum install nmap
 # Fedora
 sudo dnf install nmap
 
-# Arch Linux
-sudo pacman -S nmap
+# macOS
+brew install nmap
 ```
 
-### Verificación de Instalación
-
+#### 4. Instalar Dependencias Python
 ```bash
-# Verificar que Nmap está instalado
-nmap --version
-
-# Ejecutar help para verificar el script
-./segmentador.sh --help
+pip3 install -r requirements.txt
 ```
 
----
-
-## 🚀 Uso
-
-### Sintaxis Básica
-
+#### 5. Hacer Ejecutable
 ```bash
-./segmentador.sh [opciones]
+chmod +x segmentador.py
 ```
 
-### Opciones Disponibles
-
-| Opción | Descripción | Ejemplo |
-|--------|-------------|---------|
-| `-f, --file FILE` | Archivo con rangos personalizados | `-f rangos.txt` |
-| `-e, --export FORMAT` | Formato de exportación | `-e csv` |
-| `-s, --simple` | Output simplificado | `-s` |
-| `-d, --dashboard` | Generar dashboard HTML | `-d` |
-| `--no-dashboard` | Omitir dashboard | `--no-dashboard` |
-| `-h, --help` | Mostrar ayuda | `-h` |
-
-### Formatos de Exportación
-
-- **`csv`** - Archivo CSV para análisis en Excel
-- **`json`** - Datos estructurados para APIs
-- **`markdown`** - Reporte en formato Markdown
-- **`all`** - Todos los formatos (default)
-
----
-
-## 💡 Ejemplos
-
-### Uso Básico
-
+#### 6. Verificar Instalación
 ```bash
-# Escaneo con rangos predeterminados (RFC 1918)
-sudo ./segmentador.sh
-
-# Escaneo con archivo personalizado
-sudo ./segmentador.sh -f mi_red.txt
-
-# Solo exportar a CSV
-sudo ./segmentador.sh -e csv
+python3 segmentador.py --version
+# Output: Segmentador 5.0 - Python Production Edition
 ```
 
-### Casos de Uso Avanzados
+## 🚀 Uso Básico
 
+### Escaneo Rápido con Rangos Predeterminados
 ```bash
-# Auditoría completa con todos los exports
-sudo ./segmentador.sh -f rangos_auditoria.txt -e all
-
-# Escaneo rápido sin dashboard
-sudo ./segmentador.sh -s --no-dashboard -f rangos.txt
-
-# Solo dashboard interactivo
-sudo ./segmentador.sh -f rangos.txt -e csv
+sudo python3 segmentador.py
 ```
 
-### Archivo de Rangos Personalizado
+### Escaneo con Archivo Personalizado
+```bash
+sudo python3 segmentador.py -f rangos.txt
+```
 
-Crear archivo `rangos.txt`:
+### Escaneo Paralelo (Recomendado)
+```bash
+sudo python3 segmentador.py -f rangos.txt -j 4 -v
+```
+
+### Modo Silencioso para Automatización
+```bash
+python3 segmentador.py -f rangos.txt -q --no-interactive -e json
+```
+
+## 📄 Formato del Archivo de Rangos
+
+Crear un archivo de texto con rangos de red (uno por línea):
 
 ```
-# Rangos de red para auditoría
+# Archivo: rangos_auditoria.txt
+# Comentarios están permitidos
+
+# Redes en formato CIDR
 192.168.1.0/24
 192.168.10.0/24
 10.0.0.0/16
 172.16.0.0/12
 
-# También soporta rangos IP
+# Rangos IP
 192.168.50.1-192.168.50.254
 10.1.1.1-10.1.1.100
 ```
 
----
+### Validar Archivo de Configuración
+Antes de ejecutar un escaneo, puedes validar tu archivo de rangos:
 
-## 📁 Archivos Generados
-
-### Dashboard HTML Interactivo
-```
-audit_dashboard_20250131_143022.html
-```
-- 📊 Visualizaciones con Chart.js
-- 🔥 Mapa de calor de segmentos
-- 📋 Tablas interactivas con filtros
-- 📱 Diseño responsive
-
-### Exports de Datos
-```
-audit_results_20250131_143022.csv     # Datos tabulares
-audit_results_20250131_143022.json    # API/integración
-audit_report_20250131_143022.md       # Reporte ejecutivo
-resumen_auditoria_20250131_143022.txt # Resumen técnico
-```
-
-### Contenido del Dashboard
-
-#### 📈 Métricas Principales
-- Segmentos escaneados
-- Hosts activos encontrados  
-- Tasa de actividad de red
-- Distribución por categorías
-
-#### 🎯 Categorización de Servicios
-- **ADMINISTRACION** (SSH, RDP, Telnet, VNC)
-- **BASE_DATOS** (MySQL, PostgreSQL, MSSQL, Oracle)
-- **WEB_SERVICES** (HTTP, HTTPS, alternos)
-- **SERVICIOS_MAIL_FTP** (SMTP, POP3, IMAP, FTP)
-- **DNS** (Servicios de resolución)
-- **WINDOWS_SERVICES** (RPC, NetBIOS)
-- **OTROS** (Servicios no categorizados)
-
----
-
-## ⚠️ Consideraciones de Seguridad
-
-### ⚖️ **Uso Autorizado Únicamente**
-
-> **🚨 IMPORTANTE**: Esta herramienta debe usarse únicamente en redes donde tengas autorización explícita para realizar auditorías de seguridad. El uso no autorizado puede violar leyes locales e internacionales.
-
-## 📊 Ejemplo de Output
-
-### Terminal Output
 ```bash
-🛡️ [INFO] Iniciando auditoría de segmentación: 2025-01-31 14:30:15
-✅ [+] Segmentos generados: 156 redes
-✅ [+] Hosts activos encontrados: 142
-✅ [+] Segmentos con actividad: 23
+# Validación básica
+python3 validate_config.py rangos_auditoria.txt
 
-[SEGMENTO] 192.168.10.0/24
-  ├── 192.168.10.1   [22(SSH), 80(HTTP), 443(HTTPS)]
-  ├── 192.168.10.5   [3389(RDP), 135(RPC)]
-  └── 192.168.10.254 [53(DNS)]
-
-[ADMINISTRACION] (45 servicios encontrados)
-  ├── 192.168.10.1:22 (SSH) - Segmento: 192.168.10.0/24
-  ├── 192.168.10.5:3389 (RDP) - Segmento: 192.168.10.0/24
+# Validación con estadísticas detalladas
+python3 validate_config.py rangos_auditoria.txt --stats -v
 ```
 
-### Dashboard Preview
-![Dashboard Preview](https://via.placeholder.com/800x600/667eea/ffffff?text=Dashboard+Interactivo)
+### Archivos de Ejemplo Incluidos
+- `config_ejemplo.txt` - Ejemplos de diferentes tipos de redes
+- `rangos_ejemplo.txt` - Archivo básico generado por el instalador
 
----
+## 🎯 Opciones de Línea de Comandos
 
-## 🔧 Configuración Avanzada
+```
+Uso: python3 segmentador.py [opciones]
+
+Opciones principales:
+  -f, --file FILE           Archivo con rangos personalizados
+  -e, --export FORMAT       Formato de exportación (csv|json|markdown|all)
+  -j, --jobs N             Número de jobs paralelos (1-10)
+  -v, --verbose            Modo verboso con debug
+  -q, --quiet              Modo silencioso
+  -s, --simple             Output simplificado
+  --dashboard              Habilitar dashboard HTML (default)
+  --no-dashboard           Deshabilitar dashboard HTML
+  --no-interactive         Sin prompts automáticos
+  -h, --help               Mostrar ayuda completa
+```
+
+## 📁 Estructura del Proyecto
+
+```
+segmentador/
+├── segmentador.py          # Script principal
+├── requirements.txt        # Dependencias Python
+├── install.sh             # Instalador automático
+├── validate_config.py     # Validador de configuración
+├── integration_example.py # Ejemplo de integración con otras herramientas
+├── config_ejemplo.txt     # Ejemplos de configuración
+├── README.md              # Este archivo
+└── LICENSE                # Licencia MIT
+```
+
+### Archivos Generados Durante la Ejecución
+```
+audit_dashboard_YYYYMMDD_HHMMSS.html    # Dashboard interactivo
+audit_results_YYYYMMDD_HHMMSS.csv       # Datos en CSV
+audit_results_YYYYMMDD_HHMMSS.json      # Datos en JSON
+audit_report_YYYYMMDD_HHMMSS.md         # Reporte ejecutivo
+audit_log_YYYYMMDD_HHMMSS.log           # Log detallado (con -v)
+rangos_ejemplo.txt                       # Creado por install.sh
+```
+
+### Archivos de Integración (Opcionales)
+```
+nessus_targets.txt          # Targets para Nessus
+nuclei_targets.txt          # Targets para Nuclei  
+metasploit_setup.rc         # Script RC para Metasploit
+nmap_verification.sh        # Verificación detallada
+burp_targets.txt           # Targets web para Burp Suite
+integration_summary.md      # Resumen de integración
+```
+
+## 💡 Ejemplos de Uso
+
+### 1. Auditoría Básica
+```bash
+# Escaneo básico con dashboard
+sudo python3 segmentador.py
+
+# Solo exportar a CSV
+sudo python3 segmentador.py -e csv
+
+# Sin dashboard, modo simple
+python3 segmentador.py -s --no-dashboard
+```
+
+### 2. Auditoría con Archivo Personalizado
+```bash
+# Crear archivo de rangos
+cat > mis_rangos.txt << EOF
+192.168.1.0/24
+10.0.0.0/16
+172.16.0.0/12
+EOF
+
+# Ejecutar auditoría
+sudo python3 segmentador.py -f mis_rangos.txt -e all -v
+```
+
+### 3. Escaneo Paralelo Optimizado
+```bash
+# 8 jobs paralelos con logging detallado
+sudo python3 segmentador.py -f rangos.txt -j 8 -v -e json
+```
+
+### 4. Modo CI/CD
+```bash
+# Para integración continua
+python3 segmentador.py -f targets.txt -q --no-interactive -e json --no-dashboard
+```
+
+### 5. Auditoría de Redes Lentas
+```bash
+# Para redes con alta latencia (ajuste automático)
+sudo python3 segmentador.py -f rangos_remotos.txt -j 2 -v
+```
+
+## 🔍 Puertos Escaneados
+
+El script escanea los siguientes puertos críticos:
+
+| Puerto | Servicio | Categoría |
+|--------|----------|-----------|
+| 21 | FTP | Servicios Mail/FTP |
+| 22 | SSH | **Administración** |
+| 23 | Telnet | **Administración** |
+| 25 | SMTP | Servicios Mail/FTP |
+| 53 | DNS | DNS |
+| 80, 443 | HTTP/HTTPS | Web Services |
+| 110, 143, 993, 995 | Mail (POP3/IMAP) | Servicios Mail/FTP |
+| 135, 139 | Windows Services | Windows Services |
+| 1433, 1521, 3306, 5432 | **Bases de Datos** | **Base Datos** |
+| 3389 | **RDP** | **Administración** |
+| 5900 | **VNC** | **Administración** |
+| 8080, 8443 | HTTP Alternos | Web Services |
+
+## ⚙️ Configuración Avanzada
 
 ### Variables de Entorno
-
 ```bash
-# Personalizar puertos a escanear
-export SCAN_PORTS="22,80,443,3389,3306,5432"
+# Aumentar timeout de Nmap (segundos)
+export NMAP_TIMEOUT=7200
 
-# Ajustar velocidad de escaneo
-export NMAP_RATE="150"
-
-# Configurar timeouts
-export NMAP_TIMEOUT="300"
+# Logs en directorio específico
+export SEGMENTADOR_LOG_DIR="/var/log/segmentador"
 ```
 
 ### Integración con Otras Herramientas
-
 ```bash
-# Exportar targets para Nessus
-./segmentador.sh -f rangos.txt -e csv
-# Procesar CSV para generar archivo .nessus
-
-# Integrar con Metasploit
-./segmentador.sh -f rangos.txt -e json
-# Importar JSON a workspace de MSF
+# Exportar para Nessus
+python3 segmentador.py -f targets.txt -e csv
+# Procesar CSV para importar a Nessus
 
 # Pipeline con Nuclei
-./segmentador.sh -f rangos.txt -e csv | nuclei -t vulnerabilities/
+python3 segmentador.py -f targets.txt -e json | jq -r '.segments[].hosts[].ip' | nuclei -t vulnerabilities/
+
+# Integración automática con múltiples herramientas
+python3 segmentador.py -f targets.txt -e json
+python3 integration_example.py audit_results_*.json
+# Genera targets para Nessus, Nuclei, Metasploit, Burp Suite automáticamente
 ```
 
+## 🛠️ Troubleshooting
+
+### Problemas Comunes
+
+#### 1. Error: "Nmap no está instalado"
+```bash
+# Verificar instalación
+which nmap
+nmap --version
+
+# Instalar si falta
+sudo apt install nmap  # Ubuntu/Debian
+```
+
+#### 2. Error: "Permission denied"
+```bash
+# Ejecutar con sudo para escaneos SYN
+sudo python3 segmentador.py -f rangos.txt
+
+# O usar escaneos TCP connect (más lento)
+python3 segmentador.py -f rangos.txt  # Sin sudo
+```
+
+#### 3. Error: "No se encontraron hosts"
+```bash
+# Verificar conectividad
+ping 8.8.8.8
+
+# Usar modo verbose para debug
+sudo python3 segmentador.py -f rangos.txt -v
+
+# Verificar rangos en archivo
+cat rangos.txt
+```
+
+#### 4. Dashboard no se abre automáticamente
+```bash
+# Abrir manualmente
+firefox audit_dashboard_*.html
+
+# O deshabilitar auto-open
+python3 segmentador.py --no-interactive
+```
+
+#### 5. Escaneo muy lento
+```bash
+# Usar paralelización
+sudo python3 segmentador.py -j 4
+
+# Verificar latencia de red
+ping -c 5 target_network_gateway
+```
+
+### Debugging Avanzado
+
+#### Modo Verbose Completo
+```bash
+sudo python3 segmentador.py -f rangos.txt -v -j 1
+```
+
+#### Logs Detallados
+```bash
+# Los logs se guardan automáticamente con -v
+tail -f audit_log_*.log
+```
+
+#### Validar Archivo de Rangos
+```bash
+# Verificar formato
+python3 -c "
+import ipaddress
+with open('rangos.txt') as f:
+    for i, line in enumerate(f, 1):
+        line = line.strip()
+        if line and not line.startswith('#'):
+            try:
+                if '-' in line:
+                    start, end = line.split('-')
+                    ipaddress.ip_address(start.strip())
+                    ipaddress.ip_address(end.strip())
+                else:
+                    ipaddress.ip_network(line, strict=False)
+                print(f'✓ Línea {i}: {line}')
+            except Exception as e:
+                print(f'✗ Línea {i}: {line} - Error: {e}')
+"
+```
+
+## 🔒 Consideraciones de Seguridad
+
+### ⚖️ Uso Autorizado Únicamente
+> **🚨 IMPORTANTE**: Use esta herramienta únicamente en redes donde tenga autorización explícita. El uso no autorizado puede violar leyes locales e internacionales.
+
+### 🛡️ Mejores Prácticas
+1. **Obtener autorización por escrito** antes de escanear
+2. **Coordinar con equipos SOC/SecOps** para evitar alertas
+3. **Usar rangos específicos** en lugar de escaneos amplios
+4. **Documentar el alcance** de la auditoría
+5. **Ejecutar en horarios de menor tráfico**
+
+### 🔍 Detección
+Esta herramienta puede ser detectada por:
+- Sistemas IDS/IPS
+- Firewalls con DPI
+- Sistemas SIEM
+- Honeypots/tarpit systems
+
+## 📈 Rendimiento
+
+### Benchmarks Típicos
+| Escenario | Tiempo Estimado | Recomendación |
+|-----------|----------------|---------------|
+| 1 red /24 | 30-60 segundos | `-j 1` |
+| 10 redes /24 | 2-5 minutos | `-j 4` |
+| 100 redes /24 | 15-30 minutos | `-j 8` |
+| 1000+ redes | 2+ horas | `-j 8`, multiple runs |
+
+### Optimización
+```bash
+# Red rápida (< 50ms latency)
+sudo python3 segmentador.py -j 8
+
+# Red normal (50-200ms latency)  
+sudo python3 segmentador.py -j 4
+
+# Red lenta (> 200ms latency)
+sudo python3 segmentador.py -j 2
+```
+
+## 🤝 Contribuir
+
+1. Fork el repositorio
+2. Crear branch para feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit cambios (`git commit -am 'Agregar nueva funcionalidad'`)
+4. Push al branch (`git push origin feature/nueva-funcionalidad`)
+5. Abrir Pull Request
+
+## 📜 Licencia
+
+MIT License - ver archivo `LICENSE` para detalles.
+
+## 📞 Soporte
+
+- **Issues**: [GitHub Issues](https://github.com/your-repo/segmentador/issues)
+- **Email**: security@your-domain.com
+- **Documentación**: [Wiki del proyecto](https://github.com/your-repo/segmentador/wiki)
+
 ---
 
-## 🤝 Contribuciones
-
-¡Las contribuciones son bienvenidas! Por favor:
-
-1. 🍴 Fork el repositorio
-2. 🌿 Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. 💾 Commit tus cambios (`git commit -am 'Agregar nueva funcionalidad'`)
-4. 📤 Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. 🔄 Abre un Pull Request
-
-
-## 🙏 Créditos
-
-### Herramientas Utilizadas
-- **[Nmap](https://nmap.org/)** - Network discovery and security auditing
-- **[Chart.js](https://www.chartjs.org/)** - Visualizaciones interactivas
-- **[Bash](https://www.gnu.org/software/bash/)** - Scripting shell
-
----
-
-<div align="center">
-
-**⭐ Si este proyecto te resulta útil, considera darle una estrella ⭐**
+**⭐ Si este proyecto te resulta útil, considera darle una estrella**
 
 **Desarrollado con ❤️ para la comunidad de seguridad**
-
-</div>
